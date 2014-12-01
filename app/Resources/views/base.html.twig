@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -56,21 +56,27 @@
             </ul>
           </li>
           {% else %}
-          <li><a href="#" onClick="showMenu();">Connexion</a></li>
+          <li><a href="#" id="lienShowMenu">Connexion</a></li>
           <div id="menuConnexion">
-            <form id="form_id" action="#" method="post">
-              <label>
+            <form id="form_id" action="#" method="post" role="form" class="form-horizontal">
+              <label class="col-sm-4 control-label">
                 Nom d'utilisateur :
               </label>
-              <input type="text" name="_username" placeholder="Ex: jDupond">
+              <div class="col-sm-8">
+                <input type="text" name="_username" placeholder="Ex: jDupond" class="form-control">
+              </div>
 
-              <label>
+              <label class="col-sm-4 control-label">
                 Mot de passe :
               </label>
-              <input type="text" name="_password" placeholder="Ex: jQ2x$a10">
+              <div class="col-sm-8">
+                <input type="text" name="_password" placeholder="Ex: jQ2x$a10" class="form-control">
+              </div>
 
-              <label>&nbsp;</label>
-              <button name="button" class="btn btn-default"><i class="fa fa-power-off"></i> Se Connecter</button>
+              <label class="col-sm-4 control-label">&nbsp;</label>
+              <div class="col-sm-8">
+                <button name="button" class="btn btn-default form-control"><i class="fa fa-power-off"></i> Se Connecter</button>
+              </div>
             </form>
           </div>
           <li><a href="#">S'inscrire</a></li>
@@ -99,6 +105,7 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="{{ asset('ressources/js/jquery.min.js') }}"></script>
   <script src="{{ asset('ressources/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('ressources/js/custom.js') }}"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="{{ asset('ressources/js/ie10-viewport-bug-workaround.js') }}"></script>
 </body>

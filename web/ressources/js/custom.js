@@ -1,0 +1,14 @@
+$(function()
+{
+  $('#lienShowMenu').click(function()
+  {
+    if($("#menuConnexion").is(":visible"))
+    {
+      $('#menuConnexion').hide();
+    }
+    else
+    {
+      $('#menuConnexion').show();
+    }
+  });
+});
