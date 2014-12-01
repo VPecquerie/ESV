@@ -1,0 +1,3 @@
+croangels_esv_ecommerce_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CroangelsESVEcommerceBundle:Default:index }
