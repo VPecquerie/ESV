@@ -1,0 +1,31 @@
+
+{% for categorie in categories %}
+  {% if categorie.nom != 'Racine' %}
+    {% if categorie.fils|length > 0 %}
+      <li class="dropdown-submenu">
+        <a href="#">{{categorie.nom}}</a>
+        <ul class="dropdown-menu">
+          {% include "CroangelsESVEcommerceBundle:TPL:categories.html.twig"  with {'categories': categorie.fils} %}
+        </ul>
+      </li>
+    {% else %}
+      <li>
+        <a href="#">{{categorie.nom}}</a>
+      </li>
+    {% endif %}
+  {% else %}
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+      Catégories
+      <span class="caret"></span>
+    </a>
+      <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        {% include "CroangelsESVEcommerceBundle:TPL:categories.html.twig"  with {'categories': categorie.fils} %}
+      </ul>
+   </ul>
+ </li>
+  {% endif %}
+
+
+{% endfor %}

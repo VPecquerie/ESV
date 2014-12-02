@@ -1,4 +1,7 @@
+croangels_esv_utilisateur:
+    resource: "@CroangelsESVUtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /utilisateur
+
 croangels_esv_ecommerce:
     resource: "@CroangelsESVEcommerceBundle/Resources/config/routing.yml"
     prefix:   /
-

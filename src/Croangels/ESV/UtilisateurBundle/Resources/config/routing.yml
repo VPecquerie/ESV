@@ -1,0 +1,61 @@
+fos_user_security_login:
+    path:     /connexion
+    defaults: { _controller: FOSUserBundle:Security:login }
+fos_user_security_check:
+    path:     /verification-connexion
+    defaults: { _controller: FOSUserBundle:Security:check }
+fos_user_security_logout:
+    path:     /deconnexion
+    defaults: { _controller: FOSUserBundle:Security:logout }
+fos_user_change_password:
+    path:     /profil/changement-mot-de-passe
+    defaults: { _controller: FOSUserBundle:ChangePassword:changePassword }
+fos_user_group_list:
+    path: /groupe/list
+    defaults: { _controller: FOSUserBundle:Group:list }
+fos_user_group_new:
+    path: /groupe/nouveau
+    defaults: { _controller: FOSUserBundle:Group:new }
+fos_user_group_show:
+    path: /groupe/voir/{groupName}
+    defaults: { _controller: FOSUserBundle:Group:show }
+fos_user_group_edit:
+    path: /groupe/editer/{groupName}
+    defaults: { _controller: FOSUserBundle:Group:edit }
+fos_user_group_delete:
+    path: /groupe/supprimer/{groupName}
+    defaults: { _controller: FOSUserBundle:Group:delete }
+fos_user_profile_edit:
+    path: /profil/editer
+    defaults: { _controller: FOSUserBundle:Profile:edit }
+fos_user_profile_show:
+    path: /profil/voir
+    defaults: { _controller: FOSUserBundle:Profile:show }
+fos_user_profile_show:
+    path: /profil/voir/{username}
+    defaults: { _controller: FOSUserBundle:Profile:show }
+fos_user_registration_register:
+    path: /inscription
+    defaults: { _controller: FOSUserBundle:Registration:register }
+fos_user_registration_check_email:
+    path: /inscription/verification-email
+    defaults: { _controller: FOSUserBundle:Registration:checkEmail }
+fos_user_registration_confirm:
+    path: /inscription/validation
+    defaults: { _controller: FOSUserBundle:Registration:confirm }
+fos_user_registration_confirmed:
+    path: /inscription/valide
+    defaults: { _controller: FOSUserBundle:Registration:confirmed }
+
+fos_user_resetting_request:
+    path: /mot-de-pass-oublie/demande
+    defaults: { _controller: FOSUserBundle:Resetting:request }
+fos_user_resetting_send_email:
+    path: /mot-de-pass-oublie/envoi-email
+    defaults: { _controller: FOSUserBundle:Resetting:sendEmail }
+fos_user_resetting_check_email:
+    path: /mot-de-pass-oublie/verif-email
+    defaults: { _controller: FOSUserBundle:Resetting:checkEmail }
+fos_user_resetting_reset:
+    path: /mot-de-pass-oublie/modification
+    defaults: { _controller: FOSUserBundle:Resetting:reset }

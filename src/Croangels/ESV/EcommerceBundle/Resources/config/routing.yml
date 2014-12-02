@@ -1,3 +1,12 @@
 croangels_esv_ecommerce_homepage:
     path:     /
     defaults: { _controller: CroangelsESVEcommerceBundle:Default:index }
+
+### WS :
+croangels_esv_ecommerce_ws_get_products:
+    path: /ws/get/products.{_format}
+    defaults : { _controller: CroangelsESVEcommerceBundle:Webservices:getProducts, _format: json}
+
+croangels_esv_ecommerce_ws_get_categories:
+    path: /ws/get/categories.{_format}
+    defaults : { _controller: CroangelsESVEcommerceBundle:Webservices:getCategories, _format: json}

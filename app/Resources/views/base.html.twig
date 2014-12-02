@@ -1,3 +1,7 @@
+{% if form is defined %}
+  {% form_theme form 'CroangelsESVUtilisateurBundle:Form:bootstrap.html.twig' %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,7 +18,8 @@
   <link href="{{ asset('ressources/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('ressources/css/custom.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('ressources/css/font-awesome.min.css') }}">
-
+  <link href="{{ asset('ressources/libs/select2/select2.css') }}" rel="stylesheet"/>
+  <link href="{{ asset('ressources/libs/select2/select2-bootstrap.css') }}" rel="stylesheet"/>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -38,7 +43,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Accueil</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {% render(controller('CroangelsESVEcommerceBundle:Default:getCategories')) %}
         </ul>
         <ul class="nav navbar-right navbar-nav">
           {% if app.user.nom is defined %}
@@ -50,15 +55,15 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Mes Commandes</a></li>
               <li><a href="#">Mon Panier</a></li>
-              <li><a href="#">Mon Profil</a></li>
+              <li><a href="{{path('fos_user_profile_edit')}}">Mon Profil</a></li>
               <li class="divider"></li>
-              <li><a href="#">Se déconnecter</a></li>
+              <li><a href="{{path('fos_user_security_logout')}}">Se déconnecter</a></li>
             </ul>
           </li>
           {% else %}
-          <li><a href="#" id="lienShowMenu">Connexion</a></li>
+          <li><a href="{{path('fos_user_security_login')}}" id="lienShowMenu">Connexion</a></li>
           <div id="menuConnexion">
-            <form id="form_id" action="#" method="post" role="form" class="form-horizontal">
+            <form id="form_id" action="{{path('fos_user_security_check')}}" method="post" role="form" class="form-horizontal">
               <label class="col-sm-4 control-label">
                 Nom d'utilisateur :
               </label>
@@ -70,16 +75,17 @@
                 Mot de passe :
               </label>
               <div class="col-sm-8">
-                <input type="text" name="_password" placeholder="Ex: jQ2x$a10" class="form-control">
+                <input type="password" name="_password" placeholder="Ex: jQ2x$a10" class="form-control">
               </div>
 
               <label class="col-sm-4 control-label">&nbsp;</label>
               <div class="col-sm-8">
                 <button name="button" class="btn btn-default form-control"><i class="fa fa-power-off"></i> Se Connecter</button>
               </div>
+              <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
             </form>
           </div>
-          <li><a href="#">S'inscrire</a></li>
+          <li><a href="{{path('fos_user_registration_register')}}">S'inscrire</a></li>
           {% endif %}
         </ul>
       </div><!--/.nav-collapse -->
@@ -88,14 +94,11 @@
 
   <div class="container">
 
-    {% block contenu %}
+        {% block contenu %}
 
-    <h1>Page en construction....</h1>
+        <h1>Page en construction....</h1>
 
-    {% endblock %}
-
-
-
+        {% endblock %}
 
   </div><!-- /.container -->
 
@@ -105,8 +108,14 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="{{ asset('ressources/js/jquery.min.js') }}"></script>
   <script src="{{ asset('ressources/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('ressources/libs/select2/select2.js') }}"></script>
   <script src="{{ asset('ressources/js/custom.js') }}"></script>
+
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="{{ asset('ressources/js/ie10-viewport-bug-workaround.js') }}"></script>
+
+  {% block javascripts %}
+
+  {% endblock %}
 </body>
 </html>

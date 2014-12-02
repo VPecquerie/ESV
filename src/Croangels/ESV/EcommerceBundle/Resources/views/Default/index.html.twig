@@ -1,8 +1,33 @@
 {% extends '::base.html.twig' %}
 
 {% block contenu %}
+<div ng-app="monApplication">
+  <div ng-controller="ProductListController">
+    <div id="filtersBox" class="row">
+      <select id="Categories" name="Categories" placeholder="Selectionner une catégorie">
+        <option value="">Selectionner une catégorie</option>
+        <option ng-repeat="categorie in categories" value="{[{ categorie.nom }]}">
+          {[{ categorie.nom }]}
+        </option>
+      </select>
+    </div>
+    <div id="ProductList" class="row">
+      <select id="Products" name="Products" placeholder="Selectionner une catégorie">
+        <option value="">Selectionner une catégorie</option>
+        <option ng-repeat="categorie in categories" value="{[{ categorie.nom }]}">
+          {[{ categorie.nom }]}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
-
-
-
+{% block javascripts %}
+  <script src="{{ asset('ressources/js/angular.min.js') }}"></script>
+  <script charset="utf-8">
+    var urlProducts = "{{ path('croangels_esv_ecommerce_ws_get_products', { '_format' : 'json' }) }}";
+    var urlCategories = "{{ path('croangels_esv_ecommerce_ws_get_categories', { '_format' : 'json' }) }}";
+  </script>
+  <script src="{{ asset('ressources/js/accueil.angular.js') }}"></script>
 {% endblock %}

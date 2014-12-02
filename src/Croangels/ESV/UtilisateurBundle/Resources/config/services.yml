@@ -1,0 +1,5 @@
+services:
+    acme_user.registration.form.type:
+        class: Croangels\ESV\UtilisateurBundle\Form\UtilisateurType
+        tags:
+            - { name: form.type, alias: croangels_esv_utilisateurbundle_utilisateur }

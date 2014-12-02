@@ -1,0 +1,37 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
+      <strong>Erreur!</strong> {{ error.messageKey|trans(error.messageData, 'security') }}
+    </div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" role="form" class="form-horizontal">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <label for="username" class="col-xs-3">{{ 'security.login.username'|trans }}</label>
+    <div class="col-xs-9">
+      <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
+    </div>
+    <label for="password" class="col-xs-3">{{ 'security.login.password'|trans }}</label>
+    <div class="col-xs-9">
+      <input type="password" class="form-control" id="password" name="_password" required="required" />
+    </div>
+
+
+    <label for="remember_me" class="col-xs-3">{{ 'security.login.remember_me'|trans }}</label>
+    <div class="col-xs-9">
+      <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    </div>
+
+    <label for="password" class="col-xs-3">&nbsp;</label>
+    <div class="col-xs-9">
+      <input type="submit" id="_submit" name="_submit" class="btn btn-success" value="{{ 'security.login.submit'|trans }}" />
+    </div>
+
+</form>
+{% endblock fos_user_content %}

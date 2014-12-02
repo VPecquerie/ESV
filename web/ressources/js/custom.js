@@ -10,5 +10,12 @@ $(function()
     {
       $('#menuConnexion').show();
     }
+
+    return false;
+  });
+
+  $('select').select2
+  ({
+    placeholder: "Veuillez selectionner une valeur",
   });
 });
