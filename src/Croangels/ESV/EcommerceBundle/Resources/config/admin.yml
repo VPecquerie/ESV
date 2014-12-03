@@ -22,3 +22,9 @@ services:
         arguments: [~, Croangels\ESV\EcommerceBundle\Entity\ArticleVignette, CroangelsESVEcommerceBundle:ArticleVignetteAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm,  group: "Ecommerce", label: "Vignette" }
+
+    croangels_esv_ecommerce.admin.commande:
+        class: Croangels\ESV\EcommerceBundle\Admin\CommandeAdmin
+        arguments: [~, Croangels\ESV\EcommerceBundle\Entity\Commande, CroangelsESVEcommerceBundle:CommandeAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Commande}

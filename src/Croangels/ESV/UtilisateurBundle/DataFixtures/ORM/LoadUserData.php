@@ -61,7 +61,7 @@ class LoadUserData implements FixtureInterface
         {
           $userAdmin = new Utilisateur();
           $userAdmin->setUsername($row['username']);
-          $userAdmin->setPassword($row['password']);
+          $userAdmin->setPlainPassword($row['password']);
           $userAdmin->setEmail($row['email']);
           $userAdmin->setPrenom($row['nom']);
           $userAdmin->setNom($row['prenom']);

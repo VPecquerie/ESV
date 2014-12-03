@@ -102,6 +102,9 @@
   </div><!-- /.container -->
 
 
+
+  {{render(controller('CroangelsESVEcommerceBundle:Panier:get'))}}
+
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -116,5 +119,11 @@
   {% block javascripts %}
 
   {% endblock %}
+
+
+  <!-- ATTENTION FICHIER JS INCLU VIA TWIG -->
+  <script charset="utf-8">
+    {% include '::ajax.js.twig' %}
+  </script>
 </body>
 </html>

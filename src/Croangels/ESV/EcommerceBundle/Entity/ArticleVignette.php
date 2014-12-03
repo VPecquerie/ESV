@@ -3,7 +3,7 @@
 namespace Croangels\ESV\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * ArticleVignette
  *
@@ -50,10 +50,13 @@ class ArticleVignette
     private $isMaster = false;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Article", inversedBy="vignettes")
+    * @ORM\ManyToOne(targetEntity="Article", inversedBy="vignettes", cascade={"persist"})
     * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
     **/
     private $article;
+
+    private $updated;
+    private function setUpdated($value){ $this->updated = $value; return $this; }
 
     /**
      * Get id
@@ -184,7 +187,28 @@ class ArticleVignette
     /*
     //  FILE UPLOAD :
     */
-    const SERVER_PATH_TO_IMAGE_FOLDER = 'c:\\Wamp\\www\\ESV\\ressources\\img\\uploads';
+    public function getAbsolutePath()
+    {
+      return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath()
+    {
+      return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+      // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+      return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+      // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+      // le document/image dans la vue.
+      return 'ressources/img/uploads';
+    }
 
     /**
     * Unmapped property to handle file uploads
@@ -221,6 +245,7 @@ class ArticleVignette
      */
     public function upload()
     {
+
         // the file property can be empty if the field is not required
         if (null === $this->getFile())
         {
@@ -230,15 +255,17 @@ class ArticleVignette
         // we use the original file name here but you should
         // sanitize it at least to avoid any security issues
 
+        $nom = $this->getUniqId();
+
         // move takes the target directory and target filename as params
         $this->getFile()->move
         (
-            Image::SERVER_PATH_TO_IMAGE_FOLDER,
-            $this->getUniqId()
+            $this->getUploadRootDir(),
+            $nom
         );
 
         // set the path property to the filename where you've saved the file
-        $this->filename = $this->getFile()->getClientOriginalName();
+        $this->url = $this->getUploadDir().$nom;
 
         // clean up the file property as you won't need it anymore
         $this->setFile(null);
@@ -263,7 +290,10 @@ class ArticleVignette
     // ... the rest of your class lives under here, including the generated fields
     //     such as filename and updated
 
-
+    public function __toString()
+    {
+      return $this->getUrl().' - '.$this->getAlt();
+    }
 
 
 

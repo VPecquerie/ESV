@@ -20,7 +20,13 @@ class ArticleAdmin extends Admin
             ->add('tarif', null, array('label' => 'Tarif'))
             ->add('ean', 'integer', array('label' => 'EAN'))
             ->add('categorie', 'entity', array('class' => 'Croangels\ESV\EcommerceBundle\Entity\Categorie'))
-            // ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
+            ->add('vignettes', 'sonata_type_collection', array( 'by_reference' => false ), array
+                                                                                          (
+                                                                                            'edit' => 'inline',
+                                                                                            'delete' => false,
+                                                                                            'inline' => 'table',
+                                                                                            'sortable' => 'id',
+                                                                                          ))
 
         ;
     }

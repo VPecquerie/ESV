@@ -21,7 +21,8 @@ class AppKernel extends Kernel
 
             // custom :
             new FOS\UserBundle\FOSUserBundle(),
-
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            
             // SONATA :
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),

@@ -10,3 +10,11 @@ croangels_esv_ecommerce_ws_get_products:
 croangels_esv_ecommerce_ws_get_categories:
     path: /ws/get/categories.{_format}
     defaults : { _controller: CroangelsESVEcommerceBundle:Webservices:getCategories, _format: json}
+
+croangels_esv_ecommerce_add_to_panier:
+    path: /panier/add.{_format}
+    defaults : { _controller: CroangelsESVEcommerceBundle:Panier:add, _format: json}
+
+croangels_esv_ecommerce_voir_panier:
+    path: /panier/voir
+    defaults : { _controller: CroangelsESVEcommerceBundle:Panier:voir, _format: json}

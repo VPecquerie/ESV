@@ -38,7 +38,6 @@ class ArticleVignetteAdmin extends Admin
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
-                    'edit' => array(),
                     'delete' => array(),
                 )
             ))
@@ -51,11 +50,10 @@ class ArticleVignetteAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
-            ->add('url')
-            ->add('alt')
-            ->add('title')
-            ->add('isMaster')
+            ->add('file', 'file', array('required' => true, 'label' => "Sélectionner la vignette"))
+            ->add('alt', null, array('required' => false, "label" => "Saisir le texte alternatif"))
+            ->add('title', null, array('required' => false, "label" => "Saisir le contenu de l'infobulle"))
+            ->add('isMaster', null, array('required' => false, 'label' => "Image principale"))
         ;
     }
 
@@ -71,5 +69,24 @@ class ArticleVignetteAdmin extends Admin
             ->add('title')
             ->add('isMaster')
         ;
+    }
+
+    public function prePersist($vignette)
+    {
+      $this->manageFileUpload($vignette);
+    }
+
+    public function preUpdate($vignette)
+    {
+      $this->manageFileUpload($vignette);
+    }
+
+    private function manageFileUpload($vignette)
+    {
+      if ($vignette->getFile())
+      {
+        $vignette->refreshUpdated();
+        $vignette->upload();
+      }
     }
 }
