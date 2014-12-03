@@ -1,0 +1,24 @@
+# Acme/DemoBundle/Resources/config/admin.yml
+services:
+    sonata.admin.article:
+        class: Croangels\ESV\EcommerceBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Ecommerce", label: "Article" }
+        arguments:
+            - ~
+            - Croangels\ESV\EcommerceBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [AcmeDemoBundle]]
+
+    croangels_esv_ecommerce.admin.categorie:
+        class: Croangels\ESV\EcommerceBundle\Admin\CategorieAdmin
+        arguments: [~, Croangels\ESV\EcommerceBundle\Entity\Categorie, CroangelsESVEcommerceBundle:CategorieAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Ecommerce", label: "Catégorie" }
+
+    croangels_esv_ecommerce.admin.article_vignette:
+        class: Croangels\ESV\EcommerceBundle\Admin\ArticleVignetteAdmin
+        arguments: [~, Croangels\ESV\EcommerceBundle\Entity\ArticleVignette, CroangelsESVEcommerceBundle:ArticleVignetteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm,  group: "Ecommerce", label: "Vignette" }

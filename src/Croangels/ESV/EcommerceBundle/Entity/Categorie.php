@@ -233,4 +233,9 @@ class Categorie
     {
         return $this->fils;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
 }

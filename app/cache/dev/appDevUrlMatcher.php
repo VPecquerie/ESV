@@ -313,6 +313,123 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'sonata.admin.controller.admin:retrieveAutocompleteItemsAction',  '_route' => 'sonata_admin_retrieve_autocomplete_items',);
             }
 
+            if (0 === strpos($pathinfo, '/admin/esv/ecommerce')) {
+                if (0 === strpos($pathinfo, '/admin/esv/ecommerce/article')) {
+                    // admin_esv_ecommerce_article_list
+                    if ($pathinfo === '/admin/esv/ecommerce/article/list') {
+                        return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_list',  '_route' => 'admin_esv_ecommerce_article_list',);
+                    }
+
+                    // admin_esv_ecommerce_article_create
+                    if ($pathinfo === '/admin/esv/ecommerce/article/create') {
+                        return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_create',  '_route' => 'admin_esv_ecommerce_article_create',);
+                    }
+
+                    // admin_esv_ecommerce_article_batch
+                    if ($pathinfo === '/admin/esv/ecommerce/article/batch') {
+                        return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_batch',  '_route' => 'admin_esv_ecommerce_article_batch',);
+                    }
+
+                    // admin_esv_ecommerce_article_edit
+                    if (preg_match('#^/admin/esv/ecommerce/article/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_article_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_edit',));
+                    }
+
+                    // admin_esv_ecommerce_article_delete
+                    if (preg_match('#^/admin/esv/ecommerce/article/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_article_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_delete',));
+                    }
+
+                    // admin_esv_ecommerce_article_show
+                    if (preg_match('#^/admin/esv/ecommerce/article/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_article_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_show',));
+                    }
+
+                    // admin_esv_ecommerce_article_export
+                    if ($pathinfo === '/admin/esv/ecommerce/article/export') {
+                        return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'sonata.admin.article',  '_sonata_name' => 'admin_esv_ecommerce_article_export',  '_route' => 'admin_esv_ecommerce_article_export',);
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/admin/esv/ecommerce/categorie')) {
+                    // admin_esv_ecommerce_categorie_list
+                    if ($pathinfo === '/admin/esv/ecommerce/categorie/list') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::listAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_list',  '_route' => 'admin_esv_ecommerce_categorie_list',);
+                    }
+
+                    // admin_esv_ecommerce_categorie_create
+                    if ($pathinfo === '/admin/esv/ecommerce/categorie/create') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::createAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_create',  '_route' => 'admin_esv_ecommerce_categorie_create',);
+                    }
+
+                    // admin_esv_ecommerce_categorie_batch
+                    if ($pathinfo === '/admin/esv/ecommerce/categorie/batch') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::batchAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_batch',  '_route' => 'admin_esv_ecommerce_categorie_batch',);
+                    }
+
+                    // admin_esv_ecommerce_categorie_edit
+                    if (preg_match('#^/admin/esv/ecommerce/categorie/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_categorie_edit')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::editAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_edit',));
+                    }
+
+                    // admin_esv_ecommerce_categorie_delete
+                    if (preg_match('#^/admin/esv/ecommerce/categorie/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_categorie_delete')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::deleteAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_delete',));
+                    }
+
+                    // admin_esv_ecommerce_categorie_show
+                    if (preg_match('#^/admin/esv/ecommerce/categorie/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_categorie_show')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::showAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_show',));
+                    }
+
+                    // admin_esv_ecommerce_categorie_export
+                    if ($pathinfo === '/admin/esv/ecommerce/categorie/export') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\CategorieAdminController::exportAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.categorie',  '_sonata_name' => 'admin_esv_ecommerce_categorie_export',  '_route' => 'admin_esv_ecommerce_categorie_export',);
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/admin/esv/ecommerce/articlevignette')) {
+                    // admin_esv_ecommerce_articlevignette_list
+                    if ($pathinfo === '/admin/esv/ecommerce/articlevignette/list') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::listAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_list',  '_route' => 'admin_esv_ecommerce_articlevignette_list',);
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_create
+                    if ($pathinfo === '/admin/esv/ecommerce/articlevignette/create') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::createAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_create',  '_route' => 'admin_esv_ecommerce_articlevignette_create',);
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_batch
+                    if ($pathinfo === '/admin/esv/ecommerce/articlevignette/batch') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::batchAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_batch',  '_route' => 'admin_esv_ecommerce_articlevignette_batch',);
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_edit
+                    if (preg_match('#^/admin/esv/ecommerce/articlevignette/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_articlevignette_edit')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::editAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_edit',));
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_delete
+                    if (preg_match('#^/admin/esv/ecommerce/articlevignette/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_articlevignette_delete')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::deleteAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_delete',));
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_show
+                    if (preg_match('#^/admin/esv/ecommerce/articlevignette/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_esv_ecommerce_articlevignette_show')), array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::showAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_show',));
+                    }
+
+                    // admin_esv_ecommerce_articlevignette_export
+                    if ($pathinfo === '/admin/esv/ecommerce/articlevignette/export') {
+                        return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\ArticleVignetteAdminController::exportAction',  '_sonata_admin' => 'croangels_esv_ecommerce.admin.article_vignette',  '_sonata_name' => 'admin_esv_ecommerce_articlevignette_export',  '_route' => 'admin_esv_ecommerce_articlevignette_export',);
+                    }
+
+                }
+
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
