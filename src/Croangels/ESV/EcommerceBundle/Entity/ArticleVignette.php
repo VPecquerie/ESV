@@ -211,7 +211,7 @@ class ArticleVignette
         return $this->file;
     }
 
-    public functino getUniqId()
+    public function getUniqId()
     {
       return md5(sha1(uniqid()));
     }
@@ -234,7 +234,7 @@ class ArticleVignette
         $this->getFile()->move
         (
             Image::SERVER_PATH_TO_IMAGE_FOLDER,
-            $this->getFile()->getClientOriginalName()
+            $this->getUniqId()
         );
 
         // set the path property to the filename where you've saved the file

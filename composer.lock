@@ -1291,17 +1291,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.10",
+            "version": "v3.0.12",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "ca188a500a7bef815a46f19f8616f0a775e7dbf2"
+                "reference": "fcb1b0d52c5b5396228e52e65bc6924e9797ee84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ca188a500a7bef815a46f19f8616f0a775e7dbf2",
-                "reference": "ca188a500a7bef815a46f19f8616f0a775e7dbf2",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/fcb1b0d52c5b5396228e52e65bc6924e9797ee84",
+                "reference": "fcb1b0d52c5b5396228e52e65bc6924e9797ee84",
                 "shasum": ""
             },
             "require": {
@@ -1340,7 +1340,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2014-11-23 18:30:35"
+            "time": "2014-12-03 13:51:42"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2125,12 +2125,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "0999ea74b7f5ab8019866aa2994ca35903010b2b"
+                "reference": "0b3aa16f2f8d2204e153d74ea6b7fc0496f45c10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/0999ea74b7f5ab8019866aa2994ca35903010b2b",
-                "reference": "0999ea74b7f5ab8019866aa2994ca35903010b2b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0b3aa16f2f8d2204e153d74ea6b7fc0496f45c10",
+                "reference": "0b3aa16f2f8d2204e153d74ea6b7fc0496f45c10",
                 "shasum": ""
             },
             "require": {
@@ -2233,7 +2233,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-03 10:02:59"
+            "time": "2014-12-03 17:16:02"
         },
         {
             "name": "twig/extensions",
