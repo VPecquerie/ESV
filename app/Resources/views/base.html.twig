@@ -108,6 +108,9 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+  <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
   <script src="{{ asset('ressources/js/jquery.min.js') }}"></script>
   <script src="{{ asset('ressources/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('ressources/libs/select2/select2.js') }}"></script>
@@ -122,8 +125,6 @@
 
 
   <!-- ATTENTION FICHIER JS INCLU VIA TWIG -->
-  <script charset="utf-8">
-    {% include '::ajax.js.twig' %}
-  </script>
+
 </body>
 </html>

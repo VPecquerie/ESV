@@ -20,4 +20,23 @@ $(function()
   });
 
   $('.carousel').delay(4000).carousel();
+
 });
+
+
+
+// AJAX PART :
+
+function addToPanier(id, quantite = 1)
+{
+  $.ajax
+  ({
+    type: "POST",
+    url: Routing.generate('croangels_esv_ecommerce_add_to_panier'),
+    data: { article_id: id, article_quantite: quantite }
+  })
+  .done(function( msg )
+  {
+    console.log(msg);
+  });
+}
