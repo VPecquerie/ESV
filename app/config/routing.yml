@@ -5,3 +5,13 @@ croangels_esv_utilisateur:
 croangels_esv_ecommerce:
     resource: "@CroangelsESVEcommerceBundle/Resources/config/routing.yml"
     prefix:   /
+
+## SONATA ADMIN :
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
