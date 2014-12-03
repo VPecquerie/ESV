@@ -66,3 +66,73 @@ body
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
+.thumbnail-list {
+  /* remove default list styles */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* remove spaces between li tags*/
+  font-size: 0;
+}
+
+.thumbnail-list li {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.333%;
+  padding: 2%;
+  /*-moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;*/
+  font-size: 12px;
+}
+
+.thumbnail-list img {
+  display: block;
+  width: 100%;
+}
+
+.item { background: green}
+.cut-price {text-decoration:line-through; color: #ccc;}
+.product-price { float: left; width:100%; color: #999;}
+
+@media and (max-width: 767px) {
+  .thumbnail-list li {width: 50%;}
+}
+@media (max-width: 480px) {
+  .thumbnail-list li {width: 100%;}
+}
+
+/* Carousel base class */
+.carousel {
+  height: 150px;
+  margin-bottom: 0px;
+  text-align:center;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 150px;
+  background-color: #fff;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 150px;
+  margin: auto;
+}
+
+
+.product-title
+{
+    text-align:center;
+}
+.product-price
+{
+    text-align:center;
+}

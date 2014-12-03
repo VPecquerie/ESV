@@ -5,14 +5,15 @@ var monApplication = angular.module('monApplication', []).config(function($inter
 
 monApplication.controller('ProductListController', function($scope,$http)
 {
-  $http.get(urlCategories).success(function(data)
-  {
-    $scope.categories = data;
-  });
+  $scope.affichage = "vignette";
+  $scope.ordre = "nom";
+  $scope.sens = true;
+  $scope.collonnefiltre = "$";
 
   $http.get(urlProducts).success(function(data)
   {
     $scope.products = data;
+
   });
 
 });

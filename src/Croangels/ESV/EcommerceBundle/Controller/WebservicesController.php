@@ -12,7 +12,7 @@ class WebservicesController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
       $query = $em->createQueryBuilder()
-                  ->select('a, c.nom, v')
+                  ->select('a, c, v')
                   ->from('CroangelsESVEcommerceBundle:Article','a')
                   ->leftJoin('a.categorie', 'c')
                   ->leftJoin('a.vignettes', 'v')

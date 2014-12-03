@@ -1,26 +1,66 @@
 {% extends '::base.html.twig' %}
 
 {% block contenu %}
-<div ng-app="monApplication">
-  <div ng-controller="ProductListController">
-    <div id="filtersBox" class="row">
-      <select id="Categories" name="Categories" placeholder="Selectionner une catégorie">
-        <option value="">Selectionner une catégorie</option>
-        <option ng-repeat="categorie in categories" value="{[{ categorie.nom }]}">
-          {[{ categorie.nom }]}
-        </option>
-      </select>
-    </div>
-    <div id="ProductList" class="row">
-      <select id="Products" name="Products" placeholder="Selectionner une catégorie">
-        <option value="">Selectionner une catégorie</option>
-        <option ng-repeat="categorie in categories" value="{[{ categorie.nom }]}">
-          {[{ categorie.nom }]}
-        </option>
-      </select>
-    </div>
+
+  <div class="filterBox">
+    <label for="">Trié Par : </label>
+    <select ng-model="ordre">
+      <option value="tarif">Prix</option>
+      <option value="libelle">Nom</option>
+    </select>
+
+    <select ng-model="sens">
+      <option value="true">Croissant</option>
+      <option value="false">Décroissant</option>
+    </select>
+
+    <label for="">Rechercher : </label>
+    <select ng-model="collonnefiltre">
+      <option value="$" selected>Tous</option>
+      <option value="libelle">Nom</option>
+      <option value="descriptionLongue">Description</option>
+    </select>
+    <input ng-model="filtreProduit.collonnefiltre" />
+  </filter>
+
+
+  <div class="affichageVignette" ng-if="affichage='vignette'">
+    <ul class="thumbnail-list" id="ProductList">
+      <li class="col-xl-2 col-md-4 col-xs-6" ng-repeat="product in products | filter:filtreProduit | orderBy:ordre:sens">
+        <div class="row">
+          <a href="#" class="col-md-12">
+            <div id="carousel-product{[{product.id}]}" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+
+                <div class="item active" ng-repeat-start="(key, vignette) in product.vignettes" ng-if="$first">
+                  <img class="img-responsive vignette-box" src="{{ asset('ressources/img/{[{ vignette.url}]}') }}" alt="{[{ vignette.alt }]}" title="{[{ vignette.title }]}">
+                </div>
+                <div class="item" ng-repeat-end="(key, vignette) in product.vignettes" ng-if="!$first">
+                  <img class="vignette-box" src="{{ asset('ressources/img/{[{ vignette.url}]}') }}" alt="{[{ vignette.alt }]}" title="{[{ vignette.title }]}">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="product-title">{[{ product.libelle }]}</h4>
+            <div class="product-price">
+              <span class="normal-price">{[{product.tarif}]}</span><br />
+              <button type="button" class="btn btn-default navbar-btn">Ajouter au panier</button>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
-</div>
+
+
+
+
 {% endblock %}
 
 {% block javascripts %}

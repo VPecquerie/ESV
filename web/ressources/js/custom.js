@@ -18,4 +18,6 @@ $(function()
   ({
     placeholder: "Veuillez selectionner une valeur",
   });
+
+  $('.carousel').delay(4000).carousel();
 });

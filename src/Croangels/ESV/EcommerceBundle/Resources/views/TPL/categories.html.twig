@@ -1,4 +1,3 @@
-
 {% for categorie in categories %}
   {% if categorie.nom != 'Racine' %}
     {% if categorie.fils|length > 0 %}
@@ -10,7 +9,7 @@
       </li>
     {% else %}
       <li>
-        <a href="#">{{categorie.nom}}</a>
+        <a ng-click="filtreProduit.categorie = '{{categorie.nom}}'">{{categorie.nom}}</a>
       </li>
     {% endif %}
   {% else %}
@@ -23,7 +22,6 @@
       <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
         {% include "CroangelsESVEcommerceBundle:TPL:categories.html.twig"  with {'categories': categorie.fils} %}
       </ul>
-   </ul>
  </li>
   {% endif %}
 
