@@ -44,11 +44,11 @@ class PanierController extends Controller
                         ->from('Croangels\ESV\EcommerceBundle\Entity\Panier', 'p')
                         ->leftJoin('p.ligneCommandes', 'lc')
                         ->leftJoin('lc.article', 'a')
+                        ->where('p.id = :id')
+                        ->setParameter('id', $panier)
                         ->getQuery()
-                        ->getResult();
-      var_dump($monPanier);
+                        ->getSingleResult();
     }
-
     return $this->render('CroangelsESVEcommerceBundle:Panier:getInfo.html.twig', array('panier' => $monPanier));
   }
 
@@ -61,34 +61,34 @@ class PanierController extends Controller
     $user     =  $this->container->get('security.context')->getToken()->getUser();
     if($request->getMethod() == 'POST')
     {
-      $panier       = $request->cookies->get('monPanier');
-      $repoPanier   = $doctrine->getRepository('CroangelsESVEcommerceBundle:Panier');
-      $repoArticle  = $doctrine->getRepository('CroangelsESVEcommerceBundle:Article');
+      $panier             = $request->cookies->get('monPanier');
+      $repoPanier         = $doctrine->getRepository('CroangelsESVEcommerceBundle:Panier');
+      $repoArticle        = $doctrine->getRepository('CroangelsESVEcommerceBundle:Article');
       $repoLigneCommande  = $doctrine->getRepository('CroangelsESVEcommerceBundle:LigneCommande');
       // First Step :
       if(isset($pannier))
       {
         $monPanier = $repoPanier->find($panier);
       }
-      else if(isset($user))
+      else if(is_object($user))
       {
         $monPanier = $repoPanier->findOneByUtilisateur($user);
-      }
 
+      }
 
       if($monPanier === null) // Soit le panier n'existe pas soit il n'existe plus (Durée de vie du panier de 30J pour les visiteurs)
       {
         $monPanier = new Panier();
-        if($user !== null)
+        if(is_object($user))
         {
           $monPanier->setUtilisateur($user);
         }
         $em->persist($monPanier);
         $em->flush();
 
+        $response->headers->set('Content-Type', 'text/plain');
         $response->headers->setCookie(new Cookie('monPanier', $monPanier->getId()));
-        $response->setContent('OK');
-        return $response->send();
+
       }
 
 
@@ -109,9 +109,11 @@ class PanierController extends Controller
       }
       $em->persist($ligneCommande);
       $em->persist($monPanier);
-
       $em->flush();
-      $data = "OK";
+      $response->setContent('OK');
+      //  $response->
+      $response->setStatusCode(200);
+      return $response;
 
     }
     else

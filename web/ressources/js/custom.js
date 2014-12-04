@@ -41,11 +41,39 @@ function addToPanier(id, quantite = 1)
   ({
     type: "POST",
     url: Routing.generate('croangels_esv_ecommerce_add_to_panier'),
-    data: { article_id: id, article_quantite: quantite }
+    data: { article_id: id, article_quantite: quantite },
+    dataType:"html"
   })
   .done(function( msg )
   {
-    console.log(msg);
+    if(msg == "OK")
+    {
+      console.log('OK');
+      $('#panier-info').remove();
+      $('#panier-info').append('<img src="{{ asset('ressources/img/loader.gif') }}" alt="Chargement..." title="Chargment en cours..." />');
+      $.ajax
+      ({
+        type: "GET",
+        url: Routing.generate('croangels_esv_ecommerce_get_panier'),
+        dataType:"html"
+      }).done(function(retour)
+      {
+        console.log('Update panier...');
+        $('#panier-info').remove();
+        $('body').append(retour);
+      }).fail(function(jqXHR, textStatus, errorThrown)
+      {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      });
+    }
 
+  })
+  .fail(function(jqXHR, textStatus, errorThrown){
+    console.log('YOU FAILED !');
+    console.log(jqXHR);
+    console.log(textStatus);
+    console.log(errorThrown);
   });
 }

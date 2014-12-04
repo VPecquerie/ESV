@@ -30,7 +30,7 @@ class Categorie
     private $nom;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="fils")
+    * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="fils", cascade={"persist","remove"})
     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
     **/
     private $parent;

@@ -18,3 +18,7 @@ croangels_esv_ecommerce_add_to_panier:
 croangels_esv_ecommerce_voir_panier:
     path: /panier/voir
     defaults : { _controller: CroangelsESVEcommerceBundle:Panier:voir, _format: json}
+
+croangels_esv_ecommerce_get_panier:
+    path: /panier/get
+    defaults : { _controller: CroangelsESVEcommerceBundle:Panier:getInfo, _format: json}

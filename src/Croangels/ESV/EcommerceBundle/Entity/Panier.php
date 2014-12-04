@@ -34,13 +34,24 @@ class Panier
     public function getMontant()
     {
       $retour = 0;
-      foreach($ligneCommandes as $row)
+      foreach($this->ligneCommandes as $row)
       {
         $retour += $row->getArticle()->getTarif() * $row->getQuantite();
       }
+
+      return $retour;
     }
 
+    public function getNbArticles()
+    {
+      $retour = 0;
+      foreach($this->ligneCommandes as $row)
+      {
+        $retour += $row->getQuantite();
+      }
 
+      return $retour;
+    }
     /**
      * Get id
      *
@@ -113,4 +124,15 @@ class Panier
     {
         return $this->ligneCommandes;
     }
+
+    public function toString()
+    {
+      $retour = "Panier : ".$this->getId()."\n";
+      foreach($this->getLigneCommandes() as $row)
+      {
+        $retour .= "Article : ".$row->getArticle()->toString()."- Quantité : ".$row->getQuantite()."\n";
+      }
+      return $retour;
+    }
+
 }

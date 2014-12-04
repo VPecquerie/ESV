@@ -21,7 +21,7 @@ class LigneCommande
     private $id;
 
     /**
-    * @ORM\OneToOne(targetEntity="Article")
+    * @ORM\ManyToOne(targetEntity="Article")
     **/
     private $article;
 

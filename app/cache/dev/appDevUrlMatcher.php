@@ -276,6 +276,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\PanierController::voirAction',  '_format' => 'json',  '_route' => 'croangels_esv_ecommerce_voir_panier',);
             }
 
+            // croangels_esv_ecommerce_get_panier
+            if ($pathinfo === '/panier/get') {
+                return array (  '_controller' => 'Croangels\\ESV\\EcommerceBundle\\Controller\\PanierController::getInfoAction',  '_format' => 'json',  '_route' => 'croangels_esv_ecommerce_get_panier',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/admin')) {
