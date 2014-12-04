@@ -461,8 +461,8 @@
     <parameter key="assetic.read_from">C:/wamp/www/ESV/app/../web</parameter>
     <parameter key="assetic.write_to">C:/wamp/www/ESV/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">c:\Windows\system32\java.EXE</parameter>
-    <parameter key="assetic.node.bin">c:\Program Files\nodejs\\node.EXE</parameter>
+    <parameter key="assetic.java.bin">/usr/bin/java</parameter>
+    <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
@@ -4016,7 +4016,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54805b955e13e</argument>
+            <argument>5480a9b50c571</argument>
           </service>
         </argument>
       </argument>
@@ -4295,7 +4295,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54805b955e13e</argument>
+            <argument>5480a9b50c571</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>

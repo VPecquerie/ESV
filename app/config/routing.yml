@@ -4,7 +4,6 @@ croangels_esv_utilisateur:
     options:
         expose: true
 
-
 croangels_esv_ecommerce:
     resource: "@CroangelsESVEcommerceBundle/Resources/config/routing.yml"
     prefix:   /

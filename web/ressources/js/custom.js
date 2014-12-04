@@ -37,6 +37,8 @@ $(function()
 
 function addToPanier(id, quantite = 1)
 {
+  console.log('addToPanier');
+
   $.ajax
   ({
     type: "POST",
@@ -50,7 +52,7 @@ function addToPanier(id, quantite = 1)
     {
       console.log('OK');
       $('#panier-info').remove();
-      $('#panier-info').append('<img src="{{ asset('ressources/img/loader.gif') }}" alt="Chargement..." title="Chargment en cours..." />');
+      $('body').append('<div id="panier-info"><img src="ressources/img/loader.gif" alt="Chargement..." title="Chargment en cours..." style="width: 176px;" /></div>');
       $.ajax
       ({
         type: "GET",

@@ -21,7 +21,7 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
         if (array_key_exists("form", $context)) {
             // line 2
             echo "  ";
-            $this->env->getExtension('form')->renderer->setTheme((isset($context["form"]) ? $context["form"] : null), array(0 => "CroangelsESVUtilisateurBundle:Form:bootstrap.html.twig"));
+            $this->env->getExtension('form')->renderer->setTheme((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), array(0 => "CroangelsESVUtilisateurBundle:Form:bootstrap.html.twig"));
         }
         // line 4
         echo "
@@ -97,9 +97,9 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
             <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">
               ";
             // line 51
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nom", array())), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "nom", array())), "html", null, true);
             echo ", ";
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "prenom", array())), "html", null, true);
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "prenom", array())), "html", null, true);
             echo "
               <span class=\"caret\"></span>
             </a>
@@ -148,7 +148,7 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
               </div>
               <input type=\"hidden\" name=\"_csrf_token\" value=\"";
             // line 84
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["fos_csrf_provider"]) ? $context["fos_csrf_provider"] : null), "generateCsrfToken", array(0 => "authenticate"), "method"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["fos_csrf_provider"]) ? $context["fos_csrf_provider"] : $this->getContext($context, "fos_csrf_provider")), "generateCsrfToken", array(0 => "authenticate"), "method"), "html", null, true);
             echo "\" />
             </form>
           </div>
@@ -174,37 +174,56 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
   </div><!-- /.container -->
 
 
+
+  ";
+        // line 106
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("CroangelsESVEcommerceBundle:Panier:get"));
+        echo "
+
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src=\"";
-        // line 108
+        // line 111
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
+        echo "\"></script>
+  <script src=\"";
+        // line 112
+        echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
+        echo "\"></script>
+
+  <script src=\"";
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 109
+        // line 115
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 110
+        // line 116
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/libs/select2/select2.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 111
+        // line 117
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/custom.js"), "html", null, true);
         echo "\"></script>
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src=\"";
-        // line 114
+        // line 120
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/ie10-viewport-bug-workaround.js"), "html", null, true);
         echo "\"></script>
 
   ";
-        // line 116
+        // line 122
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 119
-        echo "</body>
+        // line 125
+        echo "
+
+  <!-- ATTENTION FICHIER JS INCLU VIA TWIG -->
+
+</body>
 </html>
 ";
     }
@@ -219,10 +238,10 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
         ";
     }
 
-    // line 116
+    // line 122
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 117
+        // line 123
         echo "
   ";
     }
@@ -239,6 +258,6 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
 
     public function getDebugInfo()
     {
-        return array (  226 => 117,  223 => 116,  216 => 97,  213 => 96,  207 => 119,  205 => 116,  200 => 114,  194 => 111,  190 => 110,  186 => 109,  182 => 108,  173 => 101,  171 => 96,  162 => 89,  157 => 87,  151 => 84,  129 => 65,  123 => 63,  116 => 59,  111 => 57,  100 => 51,  96 => 49,  94 => 48,  90 => 46,  88 => 45,  62 => 22,  58 => 21,  54 => 20,  50 => 19,  46 => 18,  38 => 13,  27 => 4,  23 => 2,  21 => 1,);
+        return array (  245 => 123,  242 => 122,  235 => 97,  232 => 96,  222 => 125,  220 => 122,  215 => 120,  209 => 117,  205 => 116,  201 => 115,  197 => 114,  192 => 112,  188 => 111,  180 => 106,  173 => 101,  171 => 96,  162 => 89,  157 => 87,  151 => 84,  129 => 65,  123 => 63,  116 => 59,  111 => 57,  100 => 51,  96 => 49,  94 => 48,  90 => 46,  88 => 45,  62 => 22,  58 => 21,  54 => 20,  50 => 19,  46 => 18,  38 => 13,  27 => 4,  23 => 2,  21 => 1,);
     }
 }

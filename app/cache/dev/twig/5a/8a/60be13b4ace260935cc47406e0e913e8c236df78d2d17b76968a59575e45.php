@@ -1,6 +1,6 @@
 <?php
 
-/* CroangelsESVUtilisateurBundle:Security:login.html.twig */
+/* FOSUserBundle:Security:login.html.twig */
 class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a59575e45 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -91,7 +91,7 @@ class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a595
 
     public function getTemplateName()
     {
-        return "CroangelsESVUtilisateurBundle:Security:login.html.twig";
+        return "FOSUserBundle:Security:login.html.twig";
     }
 
     public function isTraitable()

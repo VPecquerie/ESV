@@ -1,18 +1,16 @@
 {% if panier is not null %}
   <div id="panier-info">
-    <!-- <div class="row">
+     <div class="row">
       <div class="col-xs-2">
         <h1><i class="fa fa-shopping-cart"></i>&nbsp;</h1>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-10">
         <span class="nbArticles">{{ panier.nbArticles }}</span> Article(s) <br />
         Total : <span class="montant">{{ panier.montant }} €</span>
       </div>
     </div>
     <div class="row">
-      <button name="button" class="col-xs-12 btn btn-default">Valider la commande</button>
+      <button name="button" class="col-xs-12 btn btn-default">Voir le Panier</button>
     </div>
-  -->
-    <img src="{{ asset('ressources/img/loader.gif') }}" alt="Chargement..." title="Chargment en cours..."
   </div>
 {% endif %}

@@ -1,6 +1,6 @@
 <?php
 
-/* FOSUserBundle::layout.html.twig */
+/* CroangelsESVUtilisateurBundle::layout.html.twig */
 class __TwigTemplate_e4bc99593a1d4d03d51eb5e8a55352b82dd7d461e7ca0a85cf1353c06fe97ec7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -44,7 +44,7 @@ class __TwigTemplate_e4bc99593a1d4d03d51eb5e8a55352b82dd7d461e7ca0a85cf1353c06fe
 
     public function getTemplateName()
     {
-        return "FOSUserBundle::layout.html.twig";
+        return "CroangelsESVUtilisateurBundle::layout.html.twig";
     }
 
     public function isTraitable()

@@ -1,6 +1,6 @@
 <?php
 
-/* FOSUserBundle:Security:login.html.twig */
+/* CroangelsESVUtilisateurBundle:Security:login.html.twig */
 class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a59575e45 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -28,13 +28,13 @@ class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a595
     public function block_fos_user_content($context, array $blocks = array())
     {
         // line 6
-        if ((isset($context["error"]) ? $context["error"] : null)) {
+        if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
             // line 7
             echo "    <div class=\"alert alert-danger alert-dismissible\" role=\"alert\">
       <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Fermer</span></button>
       <strong>Erreur!</strong> ";
             // line 9
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : null), "messageKey", array()), $this->getAttribute((isset($context["error"]) ? $context["error"] : null), "messageData", array()), "security"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageKey", array()), $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageData", array()), "security"), "html", null, true);
             echo "
     </div>
 ";
@@ -47,7 +47,7 @@ class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a595
         echo "\" method=\"post\" role=\"form\" class=\"form-horizontal\">
     <input type=\"hidden\" name=\"_csrf_token\" value=\"";
         // line 14
-        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : null), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : $this->getContext($context, "csrf_token")), "html", null, true);
         echo "\" />
 
     <label for=\"username\" class=\"col-xs-3\">";
@@ -57,7 +57,7 @@ class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a595
     <div class=\"col-xs-9\">
       <input type=\"text\" class=\"form-control\" id=\"username\" name=\"_username\" value=\"";
         // line 18
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : null), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required=\"required\" />
     </div>
     <label for=\"password\" class=\"col-xs-3\">";
@@ -91,7 +91,7 @@ class __TwigTemplate_5a8a60be13b4ace260935cc47406e0e913e8c236df78d2d17b76968a595
 
     public function getTemplateName()
     {
-        return "FOSUserBundle:Security:login.html.twig";
+        return "CroangelsESVUtilisateurBundle:Security:login.html.twig";
     }
 
     public function isTraitable()

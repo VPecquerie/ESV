@@ -173,52 +173,50 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
         echo "
   </div><!-- /.container -->
 
-
-
   ";
-        // line 106
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("CroangelsESVEcommerceBundle:Panier:get"));
+        // line 104
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("CroangelsESVEcommerceBundle:Panier:getInfo"));
         echo "
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src=\"";
-        // line 111
+        // line 109
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 112
+        // line 110
         echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
         echo "\"></script>
 
   <script src=\"";
-        // line 114
+        // line 112
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 115
+        // line 113
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 116
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/libs/select2/select2.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 117
+        // line 115
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/custom.js"), "html", null, true);
         echo "\"></script>
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src=\"";
-        // line 120
+        // line 118
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/ie10-viewport-bug-workaround.js"), "html", null, true);
         echo "\"></script>
 
   ";
-        // line 122
+        // line 120
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 125
+        // line 123
         echo "
 
   <!-- ATTENTION FICHIER JS INCLU VIA TWIG -->
@@ -238,10 +236,10 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
         ";
     }
 
-    // line 122
+    // line 120
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 123
+        // line 121
         echo "
   ";
     }
@@ -258,6 +256,6 @@ class __TwigTemplate_5ab300c272953804c6b3ff33e735c5c4357c53ccdf29c37cccc7564606a
 
     public function getDebugInfo()
     {
-        return array (  245 => 123,  242 => 122,  235 => 97,  232 => 96,  222 => 125,  220 => 122,  215 => 120,  209 => 117,  205 => 116,  201 => 115,  197 => 114,  192 => 112,  188 => 111,  180 => 106,  173 => 101,  171 => 96,  162 => 89,  157 => 87,  151 => 84,  129 => 65,  123 => 63,  116 => 59,  111 => 57,  100 => 51,  96 => 49,  94 => 48,  90 => 46,  88 => 45,  62 => 22,  58 => 21,  54 => 20,  50 => 19,  46 => 18,  38 => 13,  27 => 4,  23 => 2,  21 => 1,);
+        return array (  243 => 121,  240 => 120,  233 => 97,  230 => 96,  220 => 123,  218 => 120,  213 => 118,  207 => 115,  203 => 114,  199 => 113,  195 => 112,  190 => 110,  186 => 109,  178 => 104,  173 => 101,  171 => 96,  162 => 89,  157 => 87,  151 => 84,  129 => 65,  123 => 63,  116 => 59,  111 => 57,  100 => 51,  96 => 49,  94 => 48,  90 => 46,  88 => 45,  62 => 22,  58 => 21,  54 => 20,  50 => 19,  46 => 18,  38 => 13,  27 => 4,  23 => 2,  21 => 1,);
     }
 }

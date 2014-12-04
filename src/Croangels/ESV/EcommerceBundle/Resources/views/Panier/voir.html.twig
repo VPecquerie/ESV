@@ -1,0 +1,48 @@
+{% if not app.request.xmlHttpRequest  %}
+  {% extends '::base.html.twig' %}
+  {% block contenu %}
+{% endif %}
+<table class="table table-hover table-">
+  <tr>
+    <th style="width:5%;">
+      &nbsp;
+    </th>
+    <th style="width:60%;">
+      Désignation
+    </th>
+    <th style="width:10%;">
+      <abbr title="Prix Unitaire">PU</abbr>
+    </th>
+    <th style="width:10%;">
+      <abbr title="Quantité">Qté</abbr>
+    </th>
+    <th style="width:15%;">
+      Total
+    </th>
+  </tr>
+
+{% for ligneCommande in panier.ligneCommandes %}
+  <tr>
+    <td>
+      <a id="supp_{{ligneCommande.id}}"><i class="fa fa-remove"></i></a>
+    </td>
+    <td>
+      <a href="">
+        {{ligneCommande.article.libelle}}
+      </a>
+    </td>
+    <td>
+      {{ligneCommande.article.tarif}} €
+    </td>
+    <td>
+      {{ligneCommande.quantite}}
+    </td>
+    <td>
+      {{ligneCommande.total}} €
+    </td>
+  </tr>
+{% endfor %}
+</table>
+{% if not app.request.xmlHttpRequest  %}
+  {% endblock %}
+{% endif %}

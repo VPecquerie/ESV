@@ -17,7 +17,7 @@ class __TwigTemplate_1a6ed802f3c4d0f0830c37e6ad68e24d348b2935b308a2c66292a371f59
     {
         // line 1
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : null));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,

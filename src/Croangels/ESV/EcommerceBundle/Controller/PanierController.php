@@ -17,16 +17,35 @@ class PanierController extends Controller
 
   public function voirAction()
   {
-
-    return $this->render('CroangelsESVEcommerceBundle:Panier:voir.html.twig');
+    $request  = $this->get('request');
+    $panier       = $request->cookies->get('monPanier');
+    $monPanier = null;
+    $monPanier = null;
+    if($panier !== null)
+    {
+      $monPanier = $this->getDoctrine()
+      ->getManager()
+      ->createQueryBuilder()
+      ->select('p, lc, a, v')
+      ->from('Croangels\ESV\EcommerceBundle\Entity\Panier', 'p')
+      ->leftJoin('p.ligneCommandes', 'lc')
+      ->leftJoin('lc.article', 'a')
+      ->leftJoin('a.vignettes', 'v')
+      ->where('p.id = :id')
+      ->setParameter('id', $panier)
+      ->getQuery()
+      ->getSingleResult();
+      return $this->render('CroangelsESVEcommerceBundle:Panier:voir.html.twig', array('panier' => $monPanier));
+    }
+    else return $this->redirect('croangels_esv_ecommerce_homepage');
   }
 
   public function getAction()
   {
 
     $root = $this->getDoctrine()
-                 ->getRepository('CroangelsESVEcommerceBundle:Categorie')
-                 ->findById('Racine');
+    ->getRepository('CroangelsESVEcommerceBundle:Categorie')
+    ->findById('Racine');
     return $this->render('CroangelsESVEcommerceBundle:TPL:categories.html.twig', array('categories' => $root));
   }
 
@@ -38,7 +57,7 @@ class PanierController extends Controller
     if($panier !== null)
     {
       $monPanier = $this->getDoctrine()
-                        ->getEntityManager()
+                        ->getManager()
                         ->createQueryBuilder()
                         ->select('p, lc, a')
                         ->from('Croangels\ESV\EcommerceBundle\Entity\Panier', 'p')
@@ -57,7 +76,7 @@ class PanierController extends Controller
     $request  = $this->get('request');
     $response = new Response();
     $doctrine = $this->getDoctrine();
-    $em       = $doctrine->getEntityManager();
+    $em       = $doctrine->getManager();
     $user     =  $this->container->get('security.context')->getToken()->getUser();
     if($request->getMethod() == 'POST')
     {
@@ -66,14 +85,17 @@ class PanierController extends Controller
       $repoArticle        = $doctrine->getRepository('CroangelsESVEcommerceBundle:Article');
       $repoLigneCommande  = $doctrine->getRepository('CroangelsESVEcommerceBundle:LigneCommande');
       // First Step :
-      if(isset($pannier))
+      if(isset($panier))
       {
         $monPanier = $repoPanier->find($panier);
       }
       else if(is_object($user))
       {
         $monPanier = $repoPanier->findOneByUtilisateur($user);
-
+      }
+      else
+      {
+        $monPanier = null;
       }
 
       if($monPanier === null) // Soit le panier n'existe pas soit il n'existe plus (Durée de vie du panier de 30J pour les visiteurs)

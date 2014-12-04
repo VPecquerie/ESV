@@ -43,6 +43,11 @@ class LigneCommande
     private $panier;
 
 
+    public function getTotal()
+    {
+      return $this->article->getTarif() * $this->quantite;
+    }
+
     /**
      * Get id
      *
