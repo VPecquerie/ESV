@@ -92,28 +92,33 @@ class __TwigTemplate_dbf6c43066a603ad6b3f49cdc26e39d890e8b19a05c13ed6611f20d8043
     </ul>
   </div>
 
+  ";
+        // line 61
+        echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("CroangelsESVEcommerceBundle:Panier:getInfo"), array());
+        // line 62
+        echo "
 ";
     }
 
-    // line 63
+    // line 65
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 64
+        // line 66
         echo "  <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/angular.min.js"), "html", null, true);
         echo "\"></script>
   <script charset=\"utf-8\">
     var urlProducts = \"";
-        // line 66
+        // line 68
         echo $this->env->getExtension('routing')->getPath("croangels_esv_ecommerce_ws_get_products", array("_format" => "json"));
         echo "\";
     var urlCategories = \"";
-        // line 67
+        // line 69
         echo $this->env->getExtension('routing')->getPath("croangels_esv_ecommerce_ws_get_categories", array("_format" => "json"));
         echo "\";
   </script>
   <script src=\"";
-        // line 69
+        // line 71
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("ressources/js/accueil.angular.js"), "html", null, true);
         echo "\"></script>
 ";
@@ -131,6 +136,6 @@ class __TwigTemplate_dbf6c43066a603ad6b3f49cdc26e39d890e8b19a05c13ed6611f20d8043
 
     public function getDebugInfo()
     {
-        return array (  117 => 69,  112 => 67,  108 => 66,  102 => 64,  99 => 63,  72 => 39,  66 => 36,  32 => 4,  29 => 3,);
+        return array (  122 => 71,  117 => 69,  113 => 68,  107 => 66,  104 => 65,  99 => 62,  97 => 61,  72 => 39,  66 => 36,  32 => 4,  29 => 3,);
     }
 }

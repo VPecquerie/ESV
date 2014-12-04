@@ -27,11 +27,18 @@ class Panier
     private $utilisateur;
 
     /**
-    * @ORM\OneToMany(targetEntity="LigneCommande", mappedBy="panier")
+    * @ORM\OneToMany(targetEntity="LigneCommande", mappedBy="panier", cascade={"remove", "persist"})
     **/
     private $ligneCommandes;
 
-
+    public function getMontant()
+    {
+      $retour = 0;
+      foreach($ligneCommandes as $row)
+      {
+        $retour += $row->getArticle()->getTarif() * $row->getQuantite();
+      }
+    }
 
 
     /**

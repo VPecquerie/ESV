@@ -1,0 +1,9 @@
+{% if panier is not null %}
+  <div id="panier-info">
+    <div>
+      {{ panier.ligneCommandes|length }} Article(s) <br />
+      Montant total : {{ panier.montant }}
+    </div>
+    <button name="button"><i class="fa fa-shopping-cart"></i> Valider la commande</button>
+  </div>
+{% endif %}

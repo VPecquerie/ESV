@@ -30,6 +30,28 @@ class PanierController extends Controller
     return $this->render('CroangelsESVEcommerceBundle:TPL:categories.html.twig', array('categories' => $root));
   }
 
+  public function getInfoAction()
+  {
+    $request  = $this->get('request');
+    $panier       = $request->cookies->get('monPanier');
+    $monPanier = null;
+    if($panier !== null)
+    {
+      $monPanier = $this->getDoctrine()
+                        ->getEntityManager()
+                        ->createQueryBuilder()
+                        ->select('p, lc, a')
+                        ->from('Croangels\ESV\EcommerceBundle\Entity\Panier', 'p')
+                        ->leftJoin('p.ligneCommandes', 'lc')
+                        ->leftJoin('lc.article', 'a')
+                        ->getQuery()
+                        ->getResult();
+      var_dump($monPanier);
+    }
+
+    return $this->render('CroangelsESVEcommerceBundle:Panier:getInfo.html.twig', array('panier' => $monPanier));
+  }
+
   public function addAction()
   {
     $request  = $this->get('request');
@@ -65,9 +87,6 @@ class PanierController extends Controller
         $em->flush();
 
         $response->headers->setCookie(new Cookie('monPanier', $monPanier->getId()));
-
-
-
         $response->setContent('OK');
         return $response->send();
       }
