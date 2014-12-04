@@ -3,7 +3,7 @@
 namespace Croangels\ESV\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * ArticleVignette
  *
@@ -50,10 +50,13 @@ class ArticleVignette
     private $isMaster = false;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Article")
+    * @ORM\ManyToOne(targetEntity="Article", inversedBy="vignettes", cascade={"persist"})
     * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
     **/
     private $article;
+
+    private $updated;
+    private function setUpdated($value){ $this->updated = $value; return $this; }
 
     /**
      * Get id
@@ -178,4 +181,129 @@ class ArticleVignette
     {
         return $this->article;
     }
+
+
+
+    /*
+    //  FILE UPLOAD :
+    */
+    public function getAbsolutePath()
+    {
+      return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath()
+    {
+      return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+      // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+      return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+      // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+      // le document/image dans la vue.
+      return 'ressources/img/uploads';
+    }
+
+    /**
+    * Unmapped property to handle file uploads
+    */
+    private $file;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function getUniqId()
+    {
+      return md5(sha1(uniqid()));
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function upload()
+    {
+
+        // the file property can be empty if the field is not required
+        if (null === $this->getFile())
+        {
+            return;
+        }
+
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        $nom = $this->getUniqId();
+
+        // move takes the target directory and target filename as params
+        $this->getFile()->move
+        (
+            $this->getUploadRootDir(),
+            $nom
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->url = $this->getUploadDir().$nom;
+
+        // clean up the file property as you won't need it anymore
+        $this->setFile(null);
+    }
+
+    /**
+     * Lifecycle callback to upload the file to the server
+     */
+    public function lifecycleFileUpload()
+    {
+        $this->upload();
+    }
+
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshUpdated()
+    {
+        $this->setUpdated(new \DateTime("now"));
+    }
+
+    // ... the rest of your class lives under here, including the generated fields
+    //     such as filename and updated
+
+    public function __toString()
+    {
+      return $this->getUrl().' - '.$this->getAlt();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

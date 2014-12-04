@@ -30,7 +30,7 @@ class Categorie
     private $nom;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Categorie")
+    * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="fils")
     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
     **/
     private $parent;
@@ -199,5 +199,66 @@ class Categorie
     public function getArticles()
     {
         return $this->articles;
+    }
+
+    /**
+     * Add fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     * @return Categorie
+     */
+    public function addFils(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils[] = $fils;
+
+        return $this;
+    }
+
+    /**
+     * Remove fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     */
+    public function removeFils(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils->removeElement($fils);
+    }
+
+    /**
+     * Get fils
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFils()
+    {
+        return $this->fils;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Add fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     * @return Categorie
+     */
+    public function addFil(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils[] = $fils;
+
+        return $this;
+    }
+
+    /**
+     * Remove fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     */
+    public function removeFil(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils->removeElement($fils);
     }
 }

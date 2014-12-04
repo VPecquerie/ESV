@@ -26,7 +26,7 @@ class LigneCommande
     private $article;
 
     /**
-    * @ORM\OneToOne(targetEntity="Croangels\ESV\UtilisateurBundle\Entity\Utilisateur")
+    * @ORM\Column(name="quantite", type="integer")
     **/
     private $quantite;
 
@@ -35,6 +35,12 @@ class LigneCommande
     * @ORM\JoinColumn(name="command_id", referencedColumnName="id")
     **/
     private $commande;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="Panier")
+    * @ORM\JoinColumn(name="panier_id", referencedColumnName="id")
+    **/
+    private $panier;
 
 
     /**
@@ -63,35 +69,13 @@ class LigneCommande
     /**
      * Get article
      *
-     * @return \Croangels\ESV\EcommerceBundle\Entity\Article 
+     * @return \Croangels\ESV\EcommerceBundle\Entity\Article
      */
     public function getArticle()
     {
         return $this->article;
     }
 
-    /**
-     * Set quantite
-     *
-     * @param \Croangels\ESV\UtilisateurBundle\Entity\Utilisateur $quantite
-     * @return LigneCommande
-     */
-    public function setQuantite(\Croangels\ESV\UtilisateurBundle\Entity\Utilisateur $quantite = null)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
-     * @return \Croangels\ESV\UtilisateurBundle\Entity\Utilisateur 
-     */
-    public function getQuantite()
-    {
-        return $this->quantite;
-    }
 
     /**
      * Set commande
@@ -109,10 +93,33 @@ class LigneCommande
     /**
      * Get commande
      *
-     * @return \Croangels\ESV\EcommerceBundle\Entity\Commande 
+     * @return \Croangels\ESV\EcommerceBundle\Entity\Commande
      */
     public function getCommande()
     {
         return $this->commande;
+    }
+
+    /**
+     * Set panier
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Panier $panier
+     * @return LigneCommande
+     */
+    public function setPanier(\Croangels\ESV\EcommerceBundle\Entity\Panier $panier = null)
+    {
+        $this->panier = $panier;
+
+        return $this;
+    }
+
+    /**
+     * Get panier
+     *
+     * @return \Croangels\ESV\EcommerceBundle\Entity\Panier
+     */
+    public function getPanier()
+    {
+        return $this->panier;
     }
 }

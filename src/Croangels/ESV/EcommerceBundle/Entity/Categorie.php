@@ -238,4 +238,27 @@ class Categorie
     {
         return $this->nom;
     }
+
+    /**
+     * Add fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     * @return Categorie
+     */
+    public function addFil(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils[] = $fils;
+
+        return $this;
+    }
+
+    /**
+     * Remove fils
+     *
+     * @param \Croangels\ESV\EcommerceBundle\Entity\Categorie $fils
+     */
+    public function removeFil(\Croangels\ESV\EcommerceBundle\Entity\Categorie $fils)
+    {
+        $this->fils->removeElement($fils);
+    }
 }

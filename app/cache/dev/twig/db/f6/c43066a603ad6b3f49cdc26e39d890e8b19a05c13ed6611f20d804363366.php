@@ -83,7 +83,7 @@ class __TwigTemplate_dbf6c43066a603ad6b3f49cdc26e39d890e8b19a05c13ed6611f20d8043
             <h4 class=\"product-title\">{[{ product.libelle }]}</h4>
             <div class=\"product-price\">
               <span class=\"normal-price\">{[{product.tarif}]}</span><br />
-              <button type=\"button\" class=\"btn btn-default navbar-btn\"><i class=\"fa fa-shopping-cart\"></i> Ajouter au panier</button>
+              <button type=\"button\" class=\"btn btn-default navbar-btn btnAddOneProduct\" id=\"btnAddProduct_{[{ product.id }]}\"><i class=\"fa fa-shopping-cart\"></i> Ajouter au panier</button>
             </div>
 
           </div>

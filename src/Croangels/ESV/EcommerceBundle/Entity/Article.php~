@@ -57,7 +57,7 @@ class Article
     private $ean;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Categorie")
+    * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="articles")
     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
     **/
     private $categorie;

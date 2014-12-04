@@ -21,6 +21,14 @@ $(function()
 
   $('.carousel').delay(4000).carousel();
 
+
+  $('body').on('click', '.btnAddOneProduct', function()
+  {
+
+    var id = $(this).attr('id').split("_").pop();
+    addToPanier(id, 1);
+  });
+
 });
 
 
@@ -38,5 +46,6 @@ function addToPanier(id, quantite = 1)
   .done(function( msg )
   {
     console.log(msg);
+
   });
 }
