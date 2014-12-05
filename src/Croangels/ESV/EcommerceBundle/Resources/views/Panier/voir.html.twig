@@ -1,4 +1,6 @@
-{% if not app.request.xmlHttpRequest  %}
+{% if app.request.xmlHttpRequest  %}
+  {% else %}
+      
   {% extends '::base.html.twig' %}
   {% block contenu %}
 {% endif %}

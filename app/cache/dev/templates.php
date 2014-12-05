@@ -79,6 +79,7 @@
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\wamp\\www\\ESV\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'CroangelsESVEcommerceBundle:Default:index.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\EcommerceBundle/Resources/views/Default/index.html.twig',
   'CroangelsESVEcommerceBundle:Panier:getInfo.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\EcommerceBundle/Resources/views/Panier/getInfo.html.twig',
+  'CroangelsESVEcommerceBundle:Panier:voir.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\EcommerceBundle/Resources/views/Panier/voir.html.twig',
   'CroangelsESVEcommerceBundle:TPL:categories.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\EcommerceBundle/Resources/views/TPL/categories.html.twig',
   'CroangelsESVUtilisateurBundle:Default:index.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\UtilisateurBundle/Resources/views/Default/index.html.twig',
   'CroangelsESVUtilisateurBundle:Form:bootstrap.html.twig' => 'C:\\wamp\\www\\ESV\\src\\Croangels\\ESV\\UtilisateurBundle/Resources/views/Form/bootstrap.html.twig',
